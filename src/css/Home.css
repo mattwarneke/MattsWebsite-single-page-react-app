@@ -1,0 +1,179 @@
+﻿header {
+    box-shadow: 0 1px 4px -1px #000;
+    background: #000080; /*#e53935;*/
+    color: #fff;
+    min-height: 56px;
+    padding: 2px;
+    position: fixed;
+    width: 100%;
+    z-index: 99;
+    margin: 0;
+    border: 0;
+    display: block;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+html body {
+    background: #fafafa;
+    color: rgba(0, 0, 0, 0.87);
+    font-size: 1em;
+    font-style: normal;
+    font-weight: normal;
+    line-height: 1.6;
+    min-height: 100%;
+    overflow-x: hidden;
+    position: absolute;
+    width: 100%;
+    margin: 0;
+}
+
+div, span
+{
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+p
+{
+    font-size: 0.9rem;
+    margin: 0;
+}
+
+.headerMenuItem
+{
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+    width: 72px;
+}
+
+.headerText
+{
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 1.5em;
+}
+            
+.row-900 {
+    margin-bottom: 1.5em;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1000px;
+    width: 90%;
+    background-color: white;
+    -webkit-border-radius: 3px 3px 3px 3px;
+    border-radius: 3px 3px 3px 3px;
+    -moz-box-shadow: 0 4px 11px -3px #212121;
+    -webkit-box-shadow: 0 4px 11px -3px #212121;
+    box-shadow: 0 4px 11px -3px #212121;
+}
+
+.divCanvas
+{
+    height: 450px;
+    width: 600px;
+    margin-bottom: 10px; 
+    position: relative; 
+    z-index: 9; 
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2); 
+    -moz-box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.unityPreloadLogoContainer
+{
+    position: relative;
+    color: white;
+    text-align:center;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0;
+    margin: 0;
+    padding-top: 130px;
+}
+
+.HeadingRow
+{
+    background: #eeeeee;
+    padding: 20px;
+    padding-left: 30px;
+}
+
+.ContainerHeading
+{
+    font-weight: bold;
+    font-size: 1em;
+    margin: 0;
+    padding: 5px 0 10px;
+}
+
+.ContentContainer
+{
+    margin: 20px 30px 0px 30px;
+    padding-bottom: 20px;
+}
+
+.ChatBox
+{
+    overflow-y: scroll;
+    height: 200px;
+    width: 90%;
+    list-style-type: none;
+    font-size: 1.10rem;
+}
+
+.messageInput
+{
+    width: 90%;
+    padding: 40px;
+}
+
+.icon-menu3 {
+    cursor: pointer;
+    display: inline-block;
+    font-size: 20px;
+    padding: 16px;
+    text-decoration: none;
+    vertical-align: middle;
+}
+
+header [class^='icon-'] {
+    color: #fff;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+    font-family: 'icomoon' !important;
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+font-face {
+    font-family: 'icomoon';
+    src:url('../fonts/icomoon.eot?hwtxzh');
+    src:url('../fonts/icomoon.eot?hwtxzh#iefix') format('embedded-opentype'),
+        url('../fonts/icomoon.ttf?hwtxzh') format('truetype'),
+        url('../fonts/icomoon.woff?hwtxzh') format('woff'),
+        url('../fonts/icomoon.svg?hwtxzh#icomoon') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.icon-menu3:before {
+    content: "\e900";
+}
+.icon-menu4:before {
+    content: "\e901";
+}

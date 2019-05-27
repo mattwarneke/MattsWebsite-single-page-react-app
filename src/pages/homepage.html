@@ -1,0 +1,70 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Matt Warneke Portfolio</title>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" language="javascript" type="text/javascript"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.8.20/jquery-ui.min.js" language="javascript" type="text/javascript"></script>
+
+    <script src="/scripts/Home.js" language="javascript" type="text/javascript"></script>
+    <link rel="stylesheet" href="Home.css" />
+    <link rel="stylesheet" href="/Content/WebGL/TemplateData/style.css" />
+</head>
+<body>
+    <header>
+        <div class="headerMenuItem">
+            <span class="icon-menu3"></span>
+        </div>
+        <div class="headerText">
+        Matt Warneke
+        </div>
+    </header>
+    <div class="row-900">
+        <div class="HeadingRow">
+            <span class="ContainerHeading">
+                Cookie Tower Defence - Unity/C#
+            </span>
+        </div>
+
+        <div class="ContentContainer">
+            Protect the cookie from the hungry ladybugs!!<br />
+            <button id="restart">Reload</button>
+            <button id="SwitchVersion">Switch to Basic V1</button>
+        
+            <div id="GameContainer">
+                <p class="header"><span>Unity WebGL Player | </span>MattsTd</p>
+                <div class="template-wrap clear">
+                    <div class="divCanvas" style="background-color:black;">
+                        <div id="OpenGame" class="unityPreloadLogoContainer">
+                            <div>
+                                <img src="/Content/WebGL/TemplateData/progresslogo.png" />
+                            </div>
+                            <div>
+                                Click to load game...
+                            </div>
+                            <div style="font-size: 15px">
+                                (Please be patient, the game will take a few seconds to load)
+                            </div>
+                        </div>
+                    </div>
+                    <br />
+                    <div class="logo"></div>
+                    <div class="fullscreen"><img src="/Content/WebGL/TemplateData/fullscreen.png" width="38" height="38" alt="Fullscreen" title="Fullscreen" onclick="SetFullscreen(1);" /></div>
+                    <div class="title">MattsTd</div>
+                </div>
+                <p class="footer">&laquo; created with <a href="http://unity3d.com/" title="Go to unity3d.com">Unity</a> &raquo;</p>
+            </div>
+        </div>
+        <div>
+            <p>
+                Click empty squares to build a tower: cost 70. Click a tower again to upgrade: cost 110, 180, 260.<br />
+                Towers cannot be placed on walls or placed where they will block the enemies.<br />
+                TIP: Create a maze!<br />
+            </p>
+        </div>
+    </div>
+    
+    @Html.Partial("Chat");
+    
+</body>
+</html>
