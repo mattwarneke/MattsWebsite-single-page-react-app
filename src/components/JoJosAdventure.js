@@ -7,12 +7,16 @@ export class JoJosAdventure extends React.Component {
 
         this.unityContent = new UnityContent(
             "JoJosAdventure/Build/WebGL.json",
-            "JoJosAdventure/Build/UnityLoader.js"
+            "JoJosAdventure/Build/UnityLoader.js", {
+                adjustOnWindowResize: true
+            }
         );
     }
 
     render() {
-        return <Unity unityContent={this.unityContent} />;
+        return (
+            <Unity unityContent={this.unityContent} />
+        )
     }
 }
 

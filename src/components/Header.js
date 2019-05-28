@@ -7,10 +7,10 @@ class Header extends React.Component {
         
         return (
             <header>
-                <div class="headerMenuItem">
-                    <span class="icon-menu3"></span>
+                <div className="headerMenuItem">
+                    <span className="icon-menu3"></span>
                 </div>
-                <div class="headerText">
+                <div className="headerText">
                     Matt Warneke
                 </div>
             </header>

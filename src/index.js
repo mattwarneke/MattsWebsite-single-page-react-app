@@ -5,17 +5,18 @@ import App from './App';
 import Header from './components/Header'
 import * as serviceWorker from './serviceWorker';
 
-let spacerDivStyle =
+let spaceForHeaderStyle =
     {
-        marginTop: '4em'
+        paddingTop: '5em'
     };
 
 ReactDOM.render(
-    <body>
+    <div>
         <Header />
-        <div ID="spacerDiv" style={spacerDivStyle} />
-        <App />
-    </body>
+        <div id="ListViewContainer" style={spaceForHeaderStyle}>
+            <App />
+        </div>
+    </div>
     , document.getElementById('root')
 );
 

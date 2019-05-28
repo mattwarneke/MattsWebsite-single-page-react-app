@@ -6,14 +6,14 @@ class ListViewItem extends React.Component {
     render() {
         
         return (
-            <div class="row-900">
-                <div class="HeadingRow">
-                    <span class="ContainerHeading">
+            <div className="row-900">
+                <div className="HeadingRow">
+                    <span className="ContainerHeading">
                         {this.props.heading}
                     </span>
                 </div>
 
-                <div class="ContentContainer">
+                <div className="ContentContainer">
                     {this.props.children}
                 </div>
             </div>
