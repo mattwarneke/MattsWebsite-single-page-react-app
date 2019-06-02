@@ -7,37 +7,35 @@ export class LabyrinthTD extends React.Component {
 
         this.unityContent = new UnityContent(
             "LabyrinthTD/Build/WebGL.json",
-            "LabyrinthTD/Build/UnityLoader.js"
+            "LabyrinthTD/Build/UnityLoader.js", {
+                adjustOnWindowResize: true
+            }
         );
         this.state = {
             progression: 0,
             isLoading: true
         }
-        //this.unityContent.on("loaded", () => {
-
-        //    // Now we can for example hide the loading overlay.
-
-        //    this.setState({
-        //        isLoading: false
-        //    });
-
-
-        //});
-        //this.unityContent.on("progress", progression => {
-
-        //    // Now we can use the progression to for example
-        //    // display it on our React app.
-
-        //    this.setState({
-        //        progression: progression
-        //    });
-        //});
+        this.unityContent.on("loaded", () => {
+            this.setState({
+                isLoading: false
+            });
+        });
+        this.unityContent.on("progress", progression => {
+            this.setState({
+                progression: progression
+            });
+        });
     }
 
     render() {
         return (
             <div style={{ width: "75%",  height: "640px", marginLeft: "auto", marginRight: "auto", paddingBottom: "30px" }}>
-                
+                <div> {
+                    this.state.isLoading === true
+                        ? "Loading " + this.state.progression * 100 + " percent..."
+                        : 'Loaded, enjoy!'
+                    }
+                </div>
                 <Unity id="labTd" unityContent={this.unityContent} />
             </div>
         )

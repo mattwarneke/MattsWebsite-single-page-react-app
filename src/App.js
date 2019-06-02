@@ -41,7 +41,7 @@ let ContentArray =
 class App extends React.Component {
     constructor(props) {
         super(props)
-        const startIndex = 1;
+        const startIndex = 0;
         this.state = {
             CurrentIndex: startIndex,
             ComponentToRender: ContentArray[startIndex].ComponentToRender,
