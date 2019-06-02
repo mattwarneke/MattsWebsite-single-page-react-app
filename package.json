@@ -1,5 +1,5 @@
 {
-  "name": "single-page-react-app",
+  "name": "mattwarneke.github.io",
   "version": "0.1.0",
   "private": true,
   "homepage": "https://mattwarneke.github.io/",
@@ -11,8 +11,8 @@
     "react-unity-webgl": "^7.1.1"
   },
   "scripts": {
-	"predeploy": "npm run build",
-	"deploy": "gh-pages -d build",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
