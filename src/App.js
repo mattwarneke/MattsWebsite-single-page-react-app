@@ -4,6 +4,10 @@ import ListViewItem from './components/ListViewItem';
 import JoJosAdventure from './components/JoJosAdventure';
 import LabyrinthTD from './components/LabyrinthTD';
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCat, faTree, faCube } from '@fortawesome/free-solid-svg-icons';
+import { faReact, faHtml5, faCss3Alt, faNodeJs } from '@fortawesome/free-brands-svg-icons'
+
 let rightAlign =
     {
         textAlign: 'right',
@@ -14,27 +18,29 @@ let ContentArray =
 [
         {
             name: "JoJosAdventure",
-            ComponentToRender: <JoJosAdventure />,
             ContentHeader: "JoJos Marvelous Adventure",
-            ContentBlurb:
+            ComponentToRender: <JoJosAdventure ContentBlurb=
+            {
                 <div>
                     <p>As Jojo(cat) save Princess Paige from her trapped state!</p>
                     <p>Click to move - JoJo will walk in a straight line to the clicked spot. Move her around obstacles.</p>
                     <p>Pay attention to the prompts coming from Matt(me) to make it to Paige.</p>
                 </div>
+            } />
         },
 
         {
             name: "LabyrinthTD",
-            ComponentToRender: <LabyrinthTD />,
-            ContentHeader: "Labyrinth TD",
-            ContentBlurb:
+            ContentHeader: "Labyrinth Tower Defense",
+            ComponentToRender: <LabyrinthTD ContentBlurb=
+            {
                 <div>
                     <p>Protect your sacred tree from the invaders!</p>
-                    <p>Choose a level and start, drag the defenders from the bottom on to a square - the defenders will automatically shoot approaching enemies.</p>
+                    <p>Drag the defenders from the bottom on to a square - the defenders will automatically shoot approaching enemies.</p>
                     <p>Zoom the camera with the mousewheel, move the camera by holding left click and dragging</p>
-                    <p>Try to create a maze so the enemies must run as long as possible - see the dirt path for enemy path. The path is recalculated when placing a defender.</p>
+                    <p>Try to create a maze so the enemies must run as long as possible - see the dirt path for enemy path.</p>
                 </div>
+            }/>
         }
 ];
 
@@ -63,27 +69,71 @@ class App extends React.Component {
         return (
             <React.Fragment>
                 <ListViewItem heading="Navigation">
-                    <div><b>{ContentArray[0].ContentHeader}</b> <span style={rightAlign}>February 2019 - present</span></div>
+                    <div>
+                        <b>{ContentArray[0].ContentHeader}</b>
+                        <span style={rightAlign}>
+                        {
+                            this.state.CurrentIndex !== 0 &&
+                            <button onClick={() => this.changeContent(0)}>
+                                <FontAwesomeIcon icon={faCat} /> Play Game
+                            </button>
+                        }
+                        </span>
+                    </div>
                     <p>Unity 2D Game built with C#</p>
-                    {
-                        this.state.CurrentIndex !== 0
-                        && <button onClick={() => this.changeContent(0)}>Load Game</button>
-                    }
+                    
                     <div><br /></div>
-                    <div><b>{ContentArray[1].ContentHeader}</b> <span style={rightAlign}>January 2017 - present</span></div>
+                    <div>
+                        <b>{ContentArray[1].ContentHeader}</b>
+                        <span style={rightAlign}>
+                        {
+                            this.state.CurrentIndex !== 1 &&
+                            <button onClick={() => this.changeContent(1)}>
+                                <FontAwesomeIcon icon={faTree} /> Play Game
+                            </button>
+                        }
+                        </span>
+                    </div>
                     <div>Unity 2D Game built with C#</div>
                     <div>WebGL, also available on android (closed beta)</div>
-                    {
-                        this.state.CurrentIndex !== 1
-                        && <button onClick={() => this.changeContent(1)}>Load Game</button>
-                    }
+                    
                 </ListViewItem>
                 <ListViewItem ID="mainContent" heading={this.state.ContentHeader}>
-                    {this.state.ContentBlurb}
                     {this.state.ComponentToRender}
                 </ListViewItem>
                 <ListViewItem heading="About">
-                    Single page application built with ReactJS, ES6, HTML5 and CSS3
+                    <div className="flex-container">
+                        <span style={{ textAlign: "center" }}>
+                            <div>
+                                <FontAwesomeIcon icon={faReact} className="big-icon" />
+                            </div>
+                            ReactJS
+                        </span>
+                        <span style={{ textAlign: "center" }}>
+                            <div>
+                                <FontAwesomeIcon icon={faHtml5} className="big-icon" />
+                            </div>
+                            HTML5
+                        </span>
+                        <span style={{ textAlign: "center" }}>
+                            <div>
+                                <FontAwesomeIcon icon={faCss3Alt} className="big-icon" />
+                            </div>
+                            CSS3
+                        </span>
+                        <span style={{ textAlign: "center" }}>
+                            <div>
+                                <FontAwesomeIcon icon={faNodeJs} className="big-icon" />
+                            </div>
+                            JavaScript ES6
+                        </span>
+                        <span style={{ textAlign: "center" }}>
+                            <div>
+                                <FontAwesomeIcon icon={faCube} className="big-icon" />
+                            </div>
+                            Unity
+                        </span>
+                    </div>
                 </ListViewItem>
             </React.Fragment>
         );

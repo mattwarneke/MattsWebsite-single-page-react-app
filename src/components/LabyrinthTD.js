@@ -1,5 +1,7 @@
 import React from "react";
 import Unity, { UnityContent } from "react-unity-webgl";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faExpand } from '@fortawesome/free-solid-svg-icons';
 
 export class LabyrinthTD extends React.Component {
     constructor(props) {
@@ -25,18 +27,29 @@ export class LabyrinthTD extends React.Component {
                 progression: progression
             });
         });
+        this.fullScreen = this.fullScreen.bind(this);
+    }
+
+    fullScreen() {
+        this.unityContent.setFullscreen(true);
     }
 
     render() {
         return (
-            <div style={{ width: "75%",  height: "640px", marginLeft: "auto", marginRight: "auto", paddingBottom: "30px" }}>
-                <div> {
-                    this.state.isLoading === true
-                        ? "Loading " + this.state.progression * 100 + " percent..."
-                        : 'Loaded, enjoy!'
+            <div>
+                {this.props.ContentBlurb}
+                <div className="LabTdContainer">
+                    <div className="loadingFullScreen">
+                    {
+                        this.state.isLoading === true
+                            ? "Loading " + this.state.progression * 100 + " percent..."
+                            : <span onClick={() => this.fullScreen()} style={{ cursor: "pointer" }}>
+                                <FontAwesomeIcon icon={faExpand} />  Fullscreen
+                              </span>
                     }
+                    </div>
+                    <Unity id="labTd" unityContent={this.unityContent} />
                 </div>
-                <Unity id="labTd" unityContent={this.unityContent} />
             </div>
         )
     }
