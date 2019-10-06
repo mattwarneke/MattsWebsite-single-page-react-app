@@ -1,0 +1,41 @@
+th {
+    text-align: left;
+}
+
+/* copying bootstrap */
+
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+table {
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: 20px;
+    border-spacing: 0;
+    border-collapse: collapse;
+}
+
+caption {
+    padding-top: 8px;
+    padding-bottom: 8px;
+    color: #777;
+    text-align: left;
+}
+
+tr {
+    box-sizing: border-box;
+}
+
+    tr:nth-of-type(2n+1) {
+        background-color: #f9f9f9;
+    }
+
+td {
+    padding: 8px;
+    line-height: 1.42857143;
+    vertical-align: top;
+    border-top: 1px solid #ddd;
+}

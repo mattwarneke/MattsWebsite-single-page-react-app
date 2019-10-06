@@ -1,7 +1,6 @@
 import React from 'react';
 import './../css/Home.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCoffee } from '@fortawesome/free-solid-svg-icons'
 import { faReact } from '@fortawesome/free-brands-svg-icons'
 
 class Header extends React.Component {

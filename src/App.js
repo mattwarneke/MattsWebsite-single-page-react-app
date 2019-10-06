@@ -3,6 +3,7 @@ import './App.css';
 import ListViewItem from './components/ListViewItem';
 import JoJosAdventure from './components/JoJosAdventure';
 import LabyrinthTD from './components/LabyrinthTD';
+import ScoreBoard from './components/Scoreboard';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCat, faTree, faCube } from '@fortawesome/free-solid-svg-icons';
@@ -68,6 +69,7 @@ class App extends React.Component {
     render() {
         return (
             <React.Fragment>
+
                 <ListViewItem heading="Navigation">
                     <div>
                         <b>{ContentArray[0].ContentHeader}</b>
@@ -96,11 +98,16 @@ class App extends React.Component {
                     </div>
                     <div>Unity 2D Game built with C#</div>
                     <div>WebGL, also available on android (closed beta)</div>
-                    
                 </ListViewItem>
+
                 <ListViewItem ID="mainContent" heading={this.state.ContentHeader}>
                     {this.state.ComponentToRender}
                 </ListViewItem>
+
+                <ListViewItem ID="scoreboard" heading="Games Scoreboard">
+                    <ScoreBoard />
+                </ListViewItem>
+
                 <ListViewItem heading="About">
                     <div className="flex-container">
                         <span style={{ textAlign: "center" }}>
@@ -135,6 +142,8 @@ class App extends React.Component {
                         </span>
                     </div>
                 </ListViewItem>
+
+
             </React.Fragment>
         );
     }
