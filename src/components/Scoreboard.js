@@ -4,12 +4,12 @@ import './../css/ScoreBoard.css'
 class ScoreBoard extends React.Component {
     constructor() {
         super();
-        this.state = { items: [] };
+        this.state = { scores: [] };
     }
     componentDidMount() {
         fetch(`http://localhost:8085/scores/scoreobject/`)
             .then(result => result.json())
-            .then(items => this.setState({ items }))
+            .then(scores => this.setState({ scores }))
     }
     render() {
         return (
@@ -27,27 +27,25 @@ class ScoreBoard extends React.Component {
                     </thead>
                     <tbody>
                     {
-                        this.state.items.length > 0 ?
-
-                            this.state.items.map((score) => (
+                        this.state.scores.length > 0
+                            ?
+                                this.state.scores.map((score) => (
+                                    <tr>
+                                        <td>1st</td>
+                                        <td>{score.User}</td>
+                                        <td>{score.Level}</td>
+                                        <td>{score.Score}</td>
+                                    </tr>
+                                ))
+                            :
                                 <tr>
                                     <td>1st</td>
-                                    <td>{score.User}</td>
-                                    <td>{score.Level}</td>
-                                    <td>{score.Score}</td>
+                                    <td>...</td>
+                                    <td>...</td>
+                                    <td>...</td>
                                 </tr>
-                            ))
-
-                            :
-
-                            <tr>
-                                <td>1st</td>
-                                <td>Loading...</td>
-                                <td>Loading...</td>
-                                <td>0</td>
-                            </tr>
-                        }
-                        </tbody>
+                    }
+                    </tbody>
                 </table>
             </div>
         )
