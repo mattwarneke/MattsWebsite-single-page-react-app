@@ -4,6 +4,11 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 In the project directory, you can run:
 
+## Deployment
+
+Create:
+npx create-react-app my-app
+
 ### `npm start`
 
 Runs the app in the development mode.<br>
@@ -11,6 +16,21 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 The page will reload if you make edits.<br>
 You will also see any lint errors in the console.
+
+### Deploying to GitHub Pages
+
+npm run build
+Once built there is a new folder inside the project build/
+Inside is index.html it will NOT run as all the locations of scripts and css are built thinking it will be the root of whatever server it is on.
+package.json -->  "homepage": "https://mattwarneke.github.io/",
+Has the default path and site that it will run on, if added path after it will be in all the paths: https://mattwarneke.github.io/my-project/ so that will be /my-project/
+
+Then take the build CONTENTS and past into https://mattwarneke.github.io/ repository.
+This can be automated alot better see:
+https://facebook.github.io/create-react-app/docs/deployment
+https://github.com/gitname/react-gh-pages
+
+but couldnt get the post deploy to to work. would be great to just t: npm run deploy
 
 ### `npm test`
 

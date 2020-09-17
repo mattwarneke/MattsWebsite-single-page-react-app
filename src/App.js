@@ -4,10 +4,26 @@ import ListViewItem from './components/ListViewItem';
 import JoJosAdventure from './components/JoJosAdventure';
 import LabyrinthTD from './components/LabyrinthTD';
 import ScoreBoard from './components/Scoreboard';
+import ScoreboardGraphql from './components/ScoreboardGraphql';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCat, faTree, faCube } from '@fortawesome/free-solid-svg-icons';
 import { faReact, faHtml5, faCss3Alt, faNodeJs } from '@fortawesome/free-brands-svg-icons'
+import { ApolloProvider } from 'react-apollo'
+import { ApolloClient } from 'apollo-client'
+import { InMemoryCache } from 'apollo-cache-inmemory';
+import { HttpLink } from 'apollo-link-http';
+
+const apolloClient = new ApolloClient({
+    cache: new InMemoryCache(),
+    link: new HttpLink({
+        uri: 'http://localhost:8085/graphql'
+    }),
+    connectToDevTools: true,
+    fetchOptions: {
+        mode: 'no-cors',
+    },
+});
 
 let rightAlign =
     {
@@ -48,7 +64,7 @@ let ContentArray =
 class App extends React.Component {
     constructor(props) {
         super(props)
-        const startIndex = 0;
+        const startIndex = 1;
         this.state = {
             CurrentIndex: startIndex,
             ComponentToRender: ContentArray[startIndex].ComponentToRender,
@@ -68,7 +84,7 @@ class App extends React.Component {
     }
     render() {
         return (
-            <React.Fragment>
+            <ApolloProvider client={apolloClient}>
 
                 <ListViewItem heading="Navigation">
                     <div>
@@ -105,7 +121,8 @@ class App extends React.Component {
                 </ListViewItem>
 
                 <ListViewItem ID="scoreboard" heading="Games Scoreboard">
-                    <ScoreBoard />
+                    {/*<ScoreBoard />*/}
+                    <ScoreboardGraphql />
                 </ListViewItem>
 
                 <ListViewItem heading="About">
@@ -143,8 +160,7 @@ class App extends React.Component {
                     </div>
                 </ListViewItem>
 
-
-            </React.Fragment>
+            </ApolloProvider>
         );
     }
 }
