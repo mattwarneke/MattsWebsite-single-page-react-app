@@ -20,17 +20,23 @@ You will also see any lint errors in the console.
 ### Deploying to GitHub Pages
 
 ### `npm run build`
-Once built there is a new folder inside the project build/
-Inside is index.html it will NOT run as all the locations of scripts and css are built thinking it will be the root of whatever server it is on.
-package.json --> "homepage": "https://mattwarneke.github.io/",
+Generates a /build/ folder
+Wont run locally as scripts and css assume it will be the root of whatever server it is on.
+package.json --> "homepage": "https://mattwarneke.github.io/", // update 2020-09-17 I don't see the need for this?
 Has the default path and site that it will run on, if added path after it will be in all the paths: https://mattwarneke.github.io/my-project/ so that will be /my-project/
 
-Then take the build CONTENTS and past into https://mattwarneke.github.io/ repository.
+Then take the contents of /build/ and past into https://mattwarneke.github.io/ repository.
 This can be automated alot better see:
 https://facebook.github.io/create-react-app/docs/deployment
 https://github.com/gitname/react-gh-pages
 
 but couldnt get the post deploy to to work. would be great to just to: npm run deploy
+
+### `unity publish`
+Publish WebGL, copy the ouput folders into relevant game folder in /public/:
+/Build
+/TemplateData
+then follow above build instructions
 
 ### `npm test`
 

@@ -38,7 +38,7 @@ export class LabyrinthTD extends React.Component {
         return (
             <div>
                 {this.props.ContentBlurb}
-                <div className="LabTdContainer">
+                <div>
                     <div className="loadingFullScreen">
                     {
                         this.state.isLoading === true
