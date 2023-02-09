@@ -1,5 +1,5 @@
 import React from "react";
-import Unity, { UnityContent } from "react-unity-webgl";
+import Unity, { UnityContext } from "react-unity-webgl";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faExpand } from '@fortawesome/free-solid-svg-icons';
 
@@ -7,12 +7,13 @@ export class LabyrinthTD extends React.Component {
     constructor(props) {
         super(props);
 
-        this.unityContent = new UnityContent(
-            "LabyrinthTD/Build/WebGL.json",
-            "LabyrinthTD/Build/UnityLoader.js", {
-                adjustOnWindowResize: true
-            }
-        );
+        this.unityContent = new UnityContext({
+          loaderUrl: "LabyrinthTD/Build/WebGL.loader.js",
+          dataUrl: "LabyrinthTD/Build/WebGL.data",
+          frameworkUrl: "LabyrinthTD/Build/WebGL.framework.js",
+          codeUrl: "LabyrinthTD/Build/WebGL.wasm",
+        });
+
         this.state = {
             progression: 0,
             isLoading: true
@@ -48,7 +49,16 @@ export class LabyrinthTD extends React.Component {
                               </span>
                     }
                     </div>
-                    <Unity id="labTd" unityContent={this.unityContent} />
+                    <Unity id="labTd" 
+                        unityContext={this.unityContent} 
+                        devicePixelRatio={1}
+                        style={{
+                            height: 600,
+                            width: 960,
+                            border: "2px solid black",
+                            background: "grey",
+                            display: "inline",
+                          }} />
                 </div>
             </div>
         )

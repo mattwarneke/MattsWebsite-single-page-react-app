@@ -1,5 +1,5 @@
 import React from "react";
-import Unity, { UnityContent } from "react-unity-webgl";
+import Unity, { UnityContext } from "react-unity-webgl";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faExpand } from '@fortawesome/free-solid-svg-icons';
 
@@ -7,12 +7,12 @@ export class JoJosAdventure extends React.Component {
     constructor(props) {
         super(props);
 
-        this.unityContent = new UnityContent(
-            "JoJosAdventure/Build/WebGL.json",
-            "JoJosAdventure/Build/UnityLoader.js", {
-                adjustOnWindowResize: true
-            }
-        );
+        this.unityContent = new UnityContext({
+          loaderUrl: "JoJosAdventure/Build/WebGL.loader.js",
+          dataUrl: "JoJosAdventure/Build/WebGL.data",
+          frameworkUrl: "JoJosAdventure/Build/WebGL.framework.js",
+          codeUrl: "JoJosAdventure/Build/WebGL.wasm",
+        });
         this.state = {
             progression: 0,
             isLoading: true
@@ -38,7 +38,7 @@ export class JoJosAdventure extends React.Component {
         return (
             <div>
                 {this.props.ContentBlurb}
-                <div>
+                <div >
                     <div className="loadingFullScreen">
                     {
                         this.state.isLoading === true
@@ -48,7 +48,15 @@ export class JoJosAdventure extends React.Component {
                               </span>
                     }
                     </div>
-                    <Unity unityContent={this.unityContent} />
+                    <Unity id="jojos" 
+                        unityContext={this.unityContent}
+                        style={{
+                            height: 600,
+                            width: 960,
+                            border: "2px solid black",
+                            background: "grey",
+                            display: "inline",
+                          }} />
                 </div>
             </div>
         )

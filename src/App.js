@@ -121,8 +121,8 @@ class App extends React.Component {
                 </ListViewItem>
 
                 <ListViewItem ID="scoreboard" heading="Games Scoreboard">
-                    {/*<ScoreBoard />*/}
-                    <ScoreboardGraphql />
+                    {/*<ScoreBoard /> <ScoreboardGraphql /> */}
+                    
                 </ListViewItem>
 
                 <ListViewItem heading="About">
